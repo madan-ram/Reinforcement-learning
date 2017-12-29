@@ -62,6 +62,8 @@ if __name__ == '__main__':
 				else:
 					if 	policy_algo == 'greedy':
 						# Select action using greedy
+						# For high temperatures (temperature -> infinity), all actions have nearly the same probability and the lower the temperature, the more expected rewards affect the probability. 
+						# For a low temperature (temperature -> 0+), the probability of the action with the highest expected reward tends to 1
 						if np.random.random() <= epsilon:
 							action = player_policy.get_random_action(temperature=0.5)
 						else:
